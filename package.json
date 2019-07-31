@@ -1,0 +1,27 @@
+{
+  "name": "intercom-test",
+  "version": "0.0.1",
+  "description": "Filtering of customers per their distance to a specific point",
+  "scripts": {
+    "start": "NODE_ENV=production node index.js customers.txt ",
+    "dev": "NODE_ENV=development node --inspect index.js customers.txt 53.339428 -6.257664 100",
+    "lint": "eslint --ignore-path .gitignore .",
+    "pretest": "yarn lint",
+    "test": "mocha tests/** --watch"
+  },
+  "main": "index.js",
+  "author": "Guillaume Feliciano",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "mocha": "^6.2.0",
+    "sinon": "^7.3.2",
+    "sinon-chai": "^3.3.0"
+  },
+  "engines": {
+    "node": ">=8.16.0"
+  }
+}
