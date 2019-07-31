@@ -7,7 +7,7 @@
     "dev": "NODE_ENV=development node --inspect index.js customers.txt 53.339428 -6.257664 100",
     "lint": "eslint --ignore-path .gitignore .",
     "pretest": "yarn lint",
-    "test": "mocha tests/** --watch"
+    "test": "mocha tests/** --watch --require tests/bootstrapper.js"
   },
   "main": "index.js",
   "author": "Guillaume Feliciano",
