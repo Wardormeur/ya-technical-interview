@@ -9,7 +9,6 @@ const usage = () => {
 };
 const main = (_params) => {
   const params = _params || process.argv;
-  console.log(params.length);
   if (params.length < 6) {
     return usage();
   }
@@ -18,10 +17,12 @@ const main = (_params) => {
   const refPosition = { lat: params[3], long: params[4] };
   const range = params[5];
 
-  if (!fileLoader.checkFile(filename)
-    || !geo.checkPosition(refPosition)
-    || !filter.checkRange(range)) {
-    return usage();
+  try {
+    fileLoader.checkFile(filename);
+    geo.checkPosition(refPosition);
+    filter.checkRange(range);
+  } catch (e) {
+    usage();
   }
   process.on('uncaughtException', () => {
   });
