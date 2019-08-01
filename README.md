@@ -15,9 +15,10 @@ Run `yarn dev` to have a debugger started using Chrome's v8. Visit `chrome://ins
 Run `yarn test` or `npm test`
 
 ## Roadmap
- - [] Add logger (winston/pino/logentries)
+ - [] Add real logger (winston/pino/logentries)
  - [] Add performance tracker (newrelic)
  - [] Ensure that user_id is camelCase which is the standard js once parsed. 
+ - [] Separate RangeError from TypeError
 
 ## Technical design choices and personal notes
 As being an exercise, some functions are being untested. The reason behind is a choice between code architecture and testing. As an example, NodeJs doesn't allow you to spy on an exported module being called internally. As such, it's impossible without rearchitecturing it into (meaningful) classes or exported into another script to verify that the "geo.compare" function is actually converting to radian.
