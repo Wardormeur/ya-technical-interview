@@ -22,6 +22,7 @@ const main = (_params) => {
     geo.checkPosition(refPosition);
     filter.checkRange(range);
   } catch (e) {
+    // If any throws, it means the parameters passed down are invalid
     usage();
   }
   process.on('uncaughtException', () => {
