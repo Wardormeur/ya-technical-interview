@@ -18,7 +18,7 @@ describe('Integration', () => {
   });
   it('should return a list of ordered by id asc', async () => {
     const res = await fn(['node', 'index.js', './customers.txt', '53.339428', '-6.257664', '100']);
-    const ordered = res.every((customer, index, arr) => {
+    const ordered = res.every((customer, index) => {
       if (index > 0) {
         return customer.user_id > res[index - 1].user_id;
       }
