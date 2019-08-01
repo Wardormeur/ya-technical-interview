@@ -1,20 +1,20 @@
 const geo = require('../../lib/geo');
 
-describe('checkPosition', () => {
+describe('parsePosition', () => {
   it('should throw if lat is not a number', () => {
-    expect(() => geo.checkPosition({ lat: '91km', long: '0' })).to.throw(RangeError, 'lat should be a number');
+    expect(() => geo.parsePosition({ lat: '91km', long: '0' })).to.throw(RangeError, 'lat should be a number');
   });
   it('should parse if long is not a number', () => {
-    expect(() => geo.checkPosition({ lat: '91', long: '0km' })).to.throw(RangeError, 'long should be a number');
+    expect(() => geo.parsePosition({ lat: '91', long: '0km' })).to.throw(RangeError, 'long should be a number');
   });
   it('should throw if lat is not in range', () => {
-    expect(() => geo.checkPosition({ lat: '91', long: '0' })).to.throw(RangeError, 'Lat should be between -90 and 90');
+    expect(() => geo.parsePosition({ lat: '91', long: '0' })).to.throw(RangeError, 'Lat should be between -90 and 90');
   });
   it('should throw if long is not in range', () => {
-    expect(() => geo.checkPosition({ lat: '0', long: '181' })).to.throw(RangeError, 'Long should be between -180 and 180');
+    expect(() => geo.parsePosition({ lat: '0', long: '181' })).to.throw(RangeError, 'Long should be between -180 and 180');
   });
   it('should not throw when valid', () => {
-    expect(() => geo.checkPosition({ lat: '90', long: '180' })).to.not.throw();
+    expect(() => geo.parsePosition({ lat: '90', long: '180' })).to.not.throw();
   });
 });
 

@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "description": "Filtering of customers per their distance to a specific point",
   "scripts": {
-    "start": "NODE_ENV=production node index.js customers.txt ",
-    "dev": "NODE_ENV=development node --inspect index.js customers.txt 53.339428 -6.257664 100",
+    "start": "NODE_ENV=production node index.js customers.txt 53.339428 -6.257664 100",
+    "dev": "NODE_ENV=development node --inspect-brk index.js customers.txt 53.339428 -6.257664 100",
     "lint": "eslint --ignore-path .gitignore .",
     "pretest": "yarn lint",
-    "test": "mocha tests/** --watch --require tests/bootstrapper.js"
+    "test": "mocha --recursive tests/** --watch --require tests/bootstrapper.js"
   },
   "main": "index.js",
   "author": "Guillaume Feliciano",

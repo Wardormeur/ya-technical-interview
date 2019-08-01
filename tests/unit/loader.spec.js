@@ -15,6 +15,8 @@ describe('checkFilename', () => {
     loader.checkFilename(path);
     expect(existsSync).to.have.been.calledOnce.and.calledWith(path);
   });
+  // Nothing else to test, it's a direct proxy
+  // it('should throw on file not found')
 });
 
 describe('parse', () => {
@@ -34,7 +36,7 @@ describe('parse', () => {
   });
   it('should load the file specified', () => {
     const path = './filename';
-    loader.parse(path);
+    loader.parse(null)(path);
     expect(createReadStream).to.have.been.calledOnce.and.calledWith(path);
     expect(createInterface).to.have.been.calledOnce.and.calledWith({
       input: { readStream: {} },
