@@ -16,6 +16,16 @@ describe('Integration', () => {
     expect(res).to.be.an('array');
     expect(res.length).to.equal(16);
   });
+  it('should return a list of ordered by id asc', async () => {
+    const res = await fn(['node', 'index.js', './customers.txt', '53.339428', '-6.257664', '100']);
+    const ordered = res.every((customer, index, arr) => {
+      if (index > 0) {
+        return customer.user_id > res[index - 1].user_id;
+      }
+      return true;
+    });
+    expect(ordered).to.be.true;
+  });
   it('should exit if there is less than the required number of params', () => {
     fn(['node', 'index.js', 'customers.txt']);
     expect(process.exit).to.have.been.calledOnce.and.calledWith(1);
